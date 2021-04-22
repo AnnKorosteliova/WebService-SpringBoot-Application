@@ -3,8 +3,7 @@ target/
 .mvn/
 mvnw
 mvnw.cmd
-/src/main/resources/application.properties
-/src
+/src/main/resources
 
 ### STS ###
 .apt_generated
