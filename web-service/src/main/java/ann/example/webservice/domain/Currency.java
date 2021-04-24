@@ -1,9 +1,7 @@
 package ann.example.webservice.domain;
 
 public enum Currency {
-
-	DOLLAR,
-	EURO,
-	MDL;
-	
+	USD,
+	EUR,
+	MDL;	
 }
