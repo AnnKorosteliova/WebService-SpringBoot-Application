@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ann.example.webservice.domain.Account;
+import ann.example.webservice.domain.Currency;
 import ann.example.webservice.services.AccountService;
 
 @RestController
@@ -28,4 +29,16 @@ public class AccountController {
 	public Optional<Account> show(@PathVariable int id) {
 		return accountService.getAccountById(id);
 	}
+	
+	@GetMapping("/n/{number}")
+	public Account show(@PathVariable String number) {
+		return accountService.getAccountByNumber(number);
+	}
+	
+	@GetMapping("/c/{currency}")
+	public Account show(@PathVariable Currency currency) {
+		return accountService.getAccountByCurrency(currency);
+	}
+	 
+	
 }

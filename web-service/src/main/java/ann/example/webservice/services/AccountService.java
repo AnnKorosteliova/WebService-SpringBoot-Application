@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import ann.example.webservice.dao.AccountRepo;
 import ann.example.webservice.domain.Account;
+import ann.example.webservice.domain.Currency;
 
 @Service
 public class AccountService {
@@ -30,5 +31,12 @@ public class AccountService {
 	public void deleteAccountById(int id) {
 		accountRepo.deleteById(id);
 	}
+
+	public Account getAccountByNumber(String number) {
+		return accountRepo.findByNumber(number);
+	}
 	
+	public Account getAccountByCurrency(Currency currency) {
+		return accountRepo.findByCurrency(currency);
+	}
 }
