@@ -22,5 +22,13 @@ public class AccountService {
 	public Optional<Account> getAccountById(int id) {
 		return accountRepo.findById(id);
 	}
+
+	public void saveAccount(Account account) {
+		accountRepo.save(account);
+	}
+
+	public void deleteAccountById(int id) {
+		accountRepo.deleteById(id);
+	}
 	
 }
