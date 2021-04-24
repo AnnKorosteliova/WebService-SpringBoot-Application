@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class Account {
 
@@ -17,14 +19,10 @@ public class Account {
 	private String number;
 	@Column(length = 25)
 	private Float rest;
+	@Column(length = 10)
 	@Enumerated
+	@Type(type = "ann.example.webservice.domain.Currency")
 	private Currency currency;
-
-	public Account(String number, Float rest, Currency currency) {
-		this.setNumber(number);
-		this.setRest(rest);
-		this.setCurrency(currency);
-	}
 	
 	public Account() {}
 	
