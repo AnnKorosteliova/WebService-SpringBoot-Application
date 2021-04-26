@@ -9,19 +9,26 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.Type;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Account {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(notes = "The unique id of the Account")
 	private Integer id;	
 	@Column(unique = true, length = 30)
+	@ApiModelProperty(notes = "The unique number of the Account")
 	private String number;
 	@Column(length = 25)
+	@ApiModelProperty(notes = "The rest which is on the Account")
 	private Float rest;
 	@Column(length = 10)
 	@Enumerated
 	@Type(type = "ann.example.webservice.domain.Currency")
+	@ApiModelProperty(notes = "The currency: USD, EUR, MDL")
 	private Currency currency;
 	
 	public Account() {}

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ann.example.webservice.domain.Account;
 import ann.example.webservice.services.AccountService;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/admin/account")
@@ -20,12 +21,16 @@ public class AdminController {
 	AccountService accountService;
 	
 	@PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "Create new Account",
+	  			  notes = "Provide a new Account to add specific Account in the DataBase")
 	public String create(@RequestBody Account account) {
 		accountService.saveAccount(account);
 		return "Account with id " + account.getId() + " is created!";
 	}
 	
 	@DeleteMapping("/{id}")
+	@ApiOperation(value = "Delete Account by Id",
+	  			  notes = "Provide an id to delete specific Account from the DataBase")
 	public String destroy(@PathVariable int id) {
 		accountService.deleteAccountById(id);
 		return "Account with id " + id + " is deleted!";
