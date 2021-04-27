@@ -30,7 +30,7 @@ public class AccountController {
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Find Account by Id",
 				  notes = "Provide an id to look up specific Account from the DataBase")
-	public Optional<Account> show(@PathVariable int id) {
+	public Account show(@PathVariable int id) {
 		return accountService.getAccountById(id);
 	}
 	
@@ -44,7 +44,7 @@ public class AccountController {
 	@GetMapping("/c/{currency}")
 	@ApiOperation(value = "Find Accounts by Currency",
 	  			  notes = "Provide a currency to look up specific Account from the DataBase")
-	public Account show(@PathVariable Currency currency) {
+	public List<Account> show(@PathVariable Currency currency) {
 		return accountService.getAccountByCurrency(currency);
 	}
 	 
