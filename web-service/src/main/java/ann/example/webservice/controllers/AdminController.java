@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +26,7 @@ public class AdminController {
 	  			  notes = "Provide a new Account to add specific Account in the DataBase")
 	public String create(@RequestBody Account account) {
 		accountService.saveAccount(account);
-		return "Account with id " + account.getId() + " is created!";
+		return "Account is created!";
 	}
 	
 	@DeleteMapping("/{id}")
@@ -35,5 +36,14 @@ public class AdminController {
 		accountService.deleteAccountById(id);
 		return "Account with id " + id + " is deleted!";
 	}
+	
+	@ApiOperation(value = "Update Account by Id",
+			      notes = "Provide an id and new properties to update specific Account from the DataBase")
+	@PutMapping("/{id}")
+	public String update(@PathVariable int id, @RequestBody Account newAccount) {
+		accountService.updateAccount(id, newAccount);		
+		return "Account with id " + id + " is updated!";
+	}
+	
 	
 }

@@ -20,7 +20,7 @@ public class AccountService {
 		return accountRepo.findAll();
 	}
 
-	public Optional<Account> getAccountById(int id) {
+	public Account getAccountById(int id) {
 		return accountRepo.findById(id);
 	}
 
@@ -36,7 +36,22 @@ public class AccountService {
 		return accountRepo.findByNumber(number);
 	}
 	
-	public Account getAccountByCurrency(Currency currency) {
+	public List<Account> getAccountByCurrency(Currency currency) {
 		return accountRepo.findByCurrency(currency);
+	}
+	
+	public void updateAccount(int id, Account newAccount) {
+		Account account = accountRepo.findById(id);		
+		
+		account.setRest(newAccount.getRest());
+		account.setNumber(newAccount.getNumber());
+		account.setCurrency(newAccount.getCurrency());
+		
+		accountRepo.save(account);
+	}
+	
+	
+	public void updateAccount(Account account) {
+		
 	}
 }
