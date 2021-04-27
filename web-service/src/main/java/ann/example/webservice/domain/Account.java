@@ -1,5 +1,7 @@
 package ann.example.webservice.domain;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
@@ -7,9 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @Entity
@@ -25,11 +28,14 @@ public class Account {
 	@Column(length = 25)
 	@ApiModelProperty(notes = "The rest which is on the Account")
 	private Float rest;
-	@Column(length = 10)
 	@Enumerated
 	@Type(type = "ann.example.webservice.domain.Currency")
 	@ApiModelProperty(notes = "The currency: USD, EUR, MDL")
-	private Currency currency;
+	private Currency currency;	
+	@CreationTimestamp
+	private Timestamp creationDate;	
+	@UpdateTimestamp
+	private Timestamp lastModificationDate;
 	
 	public Account() {}
 	
@@ -62,6 +68,7 @@ public class Account {
 	public String toString() {
 		return "Account [id=" + id + ", number=" + number + ", rest=" + rest + ", currency" + currency + "]";
 	}
+
 	
 	
 }
