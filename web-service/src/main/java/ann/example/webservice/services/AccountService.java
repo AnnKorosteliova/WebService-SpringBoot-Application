@@ -50,8 +50,4 @@ public class AccountService {
 		accountRepo.save(account);
 	}
 	
-	
-	public void updateAccount(Account account) {
-		
-	}
 }
