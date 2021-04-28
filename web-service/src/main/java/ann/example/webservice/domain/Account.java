@@ -39,6 +39,13 @@ public class Account {
 	
 	public Account() {}
 	
+	public Account(Integer id, String number, Float rest, Currency currency) {
+		this.id = id;
+		this.number = number;
+		this.rest = rest;
+		this.currency = currency;
+	}
+
 	public Integer getId() {
 		return id;
 	}
