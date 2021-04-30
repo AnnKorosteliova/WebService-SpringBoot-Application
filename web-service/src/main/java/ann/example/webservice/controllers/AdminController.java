@@ -37,7 +37,7 @@ public class AdminController {
 		} catch(RuntimeException e) {
 			String msg = "Cannot save the account!";
 			LOG.error(msg, e);
-			return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
 		}		
 	}
 	
@@ -51,7 +51,7 @@ public class AdminController {
 		} catch(RuntimeException e) {
 			String msg = "Cannot delete the account!";
 			LOG.error(msg, e);
-			return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
 		}		
 	}
 	
@@ -65,7 +65,7 @@ public class AdminController {
 		} catch(RuntimeException e) {
 			String msg = "Cannot update the account!";
 			LOG.error(msg, e);
-			return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
 		}		
 	}
 	
